@@ -55,9 +55,9 @@
     
     NSMutableArray *ballsArray = [NSMutableArray new];
     
-    for (int i = 0; i < 4; i ++) {
-        for (int j = 0; j < 4; j ++) {
-            UIView *ball = [[UIView alloc] initWithFrame:CGRectMake(50 + 40 * i, 50 + 40 * j, 40, 40)];
+    for (int i = 0; i < 3; i ++) {
+        for (int j = 0; j < 3; j ++) {
+            UIView *ball = [[UIView alloc] initWithFrame:CGRectMake(120 + 40 * i, 100 + 40 * j, 40, 40)];
             ball.layer.cornerRadius = 20;
             ball.backgroundColor = [UIColor blueColor];
             [internalView addSubview:ball];
@@ -65,21 +65,26 @@
         }
     }
     
+    UIView *separateBall = [[UIView alloc] initWithFrame:CGRectMake(150, 500, 40, 40)];
+    separateBall.layer.cornerRadius = 20;
+    separateBall.backgroundColor = [UIColor blueColor];
+    [internalView addSubview:separateBall];
+    [ballsArray addObject:separateBall];
+    
     _animator = [[UIDynamicAnimator alloc] initWithReferenceView:internalView];
     
     _collision = [[UICollisionBehavior alloc] initWithItems:ballsArray];
     _collision.translatesReferenceBoundsIntoBoundary = YES;
     _collision.collisionDelegate = self;
+    _collision.collisionMode = UICollisionBehaviorModeEverything;
     [_animator addBehavior:_collision];
     
     UIDynamicItemBehavior *itemBehaviour = [[UIDynamicItemBehavior alloc] initWithItems:ballsArray];
-    itemBehaviour.elasticity = 0.95;
-    itemBehaviour.resistance = 0.0;
+    itemBehaviour.elasticity = 0.8;
+    itemBehaviour.resistance = 0.5;
     [_animator addBehavior:itemBehaviour];
     
-    for (UIView *ball in ballsArray) {
-        [itemBehaviour addLinearVelocity:CGPointMake(300, 300) forItem:ball];
-    }
+    [itemBehaviour addLinearVelocity:CGPointMake(0, -1000) forItem:separateBall];
 }
 
 
