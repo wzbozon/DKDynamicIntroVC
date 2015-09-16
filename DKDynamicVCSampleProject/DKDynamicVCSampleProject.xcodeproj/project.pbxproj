@@ -12,10 +12,10 @@
 		F83183F21BA8405E00B89906 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F83183F11BA8405E00B89906 /* ViewController.m */; };
 		F83183F51BA8405E00B89906 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83183F31BA8405E00B89906 /* Main.storyboard */; };
 		F83183F71BA8405E00B89906 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83183F61BA8405E00B89906 /* Assets.xcassets */; };
-		F83183FA1BA8405E00B89906 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83183F81BA8405E00B89906 /* LaunchScreen.storyboard */; };
 		F83184051BA8405E00B89906 /* DKDynamicVCSampleProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F83184041BA8405E00B89906 /* DKDynamicVCSampleProjectTests.m */; };
 		F83184101BA8405E00B89906 /* DKDynamicVCSampleProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F831840F1BA8405E00B89906 /* DKDynamicVCSampleProjectUITests.m */; };
 		F83184201BA840F200B89906 /* DKDynamicIntroVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F831841F1BA840F200B89906 /* DKDynamicIntroVC.m */; };
+		F85DF6771BA97CF4004B54F4 /* DKDynamicBilyardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F85DF6761BA97CF4004B54F4 /* DKDynamicBilyardVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,6 @@
 		F83183F11BA8405E00B89906 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F83183F41BA8405E00B89906 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F83183F61BA8405E00B89906 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F83183F91BA8405E00B89906 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F83183FB1BA8405E00B89906 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F83184001BA8405E00B89906 /* DKDynamicVCSampleProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DKDynamicVCSampleProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83184041BA8405E00B89906 /* DKDynamicVCSampleProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKDynamicVCSampleProjectTests.m; sourceTree = "<group>"; };
@@ -54,6 +53,8 @@
 		F83184111BA8405E00B89906 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F831841E1BA840F200B89906 /* DKDynamicIntroVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DKDynamicIntroVC.h; path = ../DKDynamicIntroVC.h; sourceTree = "<group>"; };
 		F831841F1BA840F200B89906 /* DKDynamicIntroVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DKDynamicIntroVC.m; path = ../DKDynamicIntroVC.m; sourceTree = "<group>"; };
+		F85DF6751BA97CF4004B54F4 /* DKDynamicBilyardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKDynamicBilyardVC.h; sourceTree = "<group>"; };
+		F85DF6761BA97CF4004B54F4 /* DKDynamicBilyardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKDynamicBilyardVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +112,6 @@
 				F83183F11BA8405E00B89906 /* ViewController.m */,
 				F83183F31BA8405E00B89906 /* Main.storyboard */,
 				F83183F61BA8405E00B89906 /* Assets.xcassets */,
-				F83183F81BA8405E00B89906 /* LaunchScreen.storyboard */,
 				F83183FB1BA8405E00B89906 /* Info.plist */,
 				F83183EA1BA8405E00B89906 /* Supporting Files */,
 			);
@@ -149,6 +149,8 @@
 			children = (
 				F831841E1BA840F200B89906 /* DKDynamicIntroVC.h */,
 				F831841F1BA840F200B89906 /* DKDynamicIntroVC.m */,
+				F85DF6751BA97CF4004B54F4 /* DKDynamicBilyardVC.h */,
+				F85DF6761BA97CF4004B54F4 /* DKDynamicBilyardVC.m */,
 			);
 			name = DKDynamicIntroVC;
 			sourceTree = "<group>";
@@ -256,7 +258,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F83183FA1BA8405E00B89906 /* LaunchScreen.storyboard in Resources */,
 				F83183F71BA8405E00B89906 /* Assets.xcassets in Resources */,
 				F83183F51BA8405E00B89906 /* Main.storyboard in Resources */,
 			);
@@ -285,6 +286,7 @@
 			files = (
 				F83183F21BA8405E00B89906 /* ViewController.m in Sources */,
 				F83183EF1BA8405E00B89906 /* AppDelegate.m in Sources */,
+				F85DF6771BA97CF4004B54F4 /* DKDynamicBilyardVC.m in Sources */,
 				F83184201BA840F200B89906 /* DKDynamicIntroVC.m in Sources */,
 				F83183EC1BA8405E00B89906 /* main.m in Sources */,
 			);
@@ -328,14 +330,6 @@
 				F83183F41BA8405E00B89906 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F83183F81BA8405E00B89906 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F83183F91BA8405E00B89906 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -428,6 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DKDynamicVCSampleProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alwawee.DKDynamicVCSampleProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -439,6 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DKDynamicVCSampleProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alwawee.DKDynamicVCSampleProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -450,6 +446,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DKDynamicVCSampleProjectTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alwawee.DKDynamicVCSampleProjectTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -462,6 +459,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DKDynamicVCSampleProjectTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alwawee.DKDynamicVCSampleProjectTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -473,6 +471,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = DKDynamicVCSampleProjectUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alwawee.DKDynamicVCSampleProjectUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -485,6 +484,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = DKDynamicVCSampleProjectUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alwawee.DKDynamicVCSampleProjectUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
