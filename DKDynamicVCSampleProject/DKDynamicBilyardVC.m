@@ -28,12 +28,19 @@
 #import "DKDynamicBilyardVC.h"
 
 
+static const CGFloat ThrowingThreshold = 10;
+static const CGFloat ThrowingvelocityPadding = 140;
+
+
 
 @interface DKDynamicBilyardVC () <UICollisionBehaviorDelegate>
 {
     UIDynamicAnimator *_animator;
     UICollisionBehavior *_collision;
 }
+
+@property (nonatomic) UIView *separateBall;
+
 @end
 
 
@@ -55,21 +62,41 @@
     
     NSMutableArray *ballsArray = [NSMutableArray new];
     
+    int ballNumber = 1;
     for (int i = 0; i < 3; i ++) {
         for (int j = 0; j < 3; j ++) {
             UIView *ball = [[UIView alloc] initWithFrame:CGRectMake(120 + 40 * i, 100 + 40 * j, 40, 40)];
             ball.layer.cornerRadius = 20;
             ball.backgroundColor = [UIColor blueColor];
+            UILabel *ballLabel = [[UILabel alloc] initWithFrame:ball.bounds];
+            ballLabel.backgroundColor = [UIColor clearColor];
+            ballLabel.textColor = [UIColor whiteColor];
+            ballLabel.font = [UIFont boldSystemFontOfSize:17];
+            ballLabel.textAlignment = NSTextAlignmentCenter;
+            ballLabel.text = [NSString stringWithFormat:@"%d", ballNumber];
+            [ball addSubview:ballLabel];
             [internalView addSubview:ball];
             [ballsArray addObject:ball];
+            ballNumber ++;
         }
     }
     
-    UIView *separateBall = [[UIView alloc] initWithFrame:CGRectMake(150, 500, 40, 40)];
-    separateBall.layer.cornerRadius = 20;
-    separateBall.backgroundColor = [UIColor blueColor];
-    [internalView addSubview:separateBall];
-    [ballsArray addObject:separateBall];
+    _separateBall = [[UIView alloc] initWithFrame:CGRectMake(150, 500, 40, 40)];
+    _separateBall.layer.cornerRadius = 20;
+    _separateBall.backgroundColor = [UIColor blueColor];
+    
+    UIPanGestureRecognizer *gr = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
+    [_separateBall addGestureRecognizer:gr];
+    
+    UILabel *ballLabel = [[UILabel alloc] initWithFrame:_separateBall.bounds];
+    ballLabel.backgroundColor = [UIColor clearColor];
+    ballLabel.textColor = [UIColor whiteColor];
+    ballLabel.font = [UIFont boldSystemFontOfSize:17];
+    ballLabel.textAlignment = NSTextAlignmentCenter;
+    ballLabel.text = [NSString stringWithFormat:@"%d", ballNumber];
+    [_separateBall addSubview:ballLabel];
+    [internalView addSubview:_separateBall];
+    [ballsArray addObject:_separateBall];
     
     _animator = [[UIDynamicAnimator alloc] initWithReferenceView:internalView];
     
@@ -80,11 +107,43 @@
     [_animator addBehavior:_collision];
     
     UIDynamicItemBehavior *itemBehaviour = [[UIDynamicItemBehavior alloc] initWithItems:ballsArray];
-    itemBehaviour.elasticity = 0.8;
+    itemBehaviour.elasticity = 0.5;
     itemBehaviour.resistance = 0.5;
+    itemBehaviour.friction = 0.5;
     [_animator addBehavior:itemBehaviour];
-    
-    [itemBehaviour addLinearVelocity:CGPointMake(0, -1000) forItem:separateBall];
+}
+
+
+- (void) handleGesture:(UIPanGestureRecognizer*)gesture
+{
+    switch (gesture.state) {
+        case UIGestureRecognizerStateBegan: {
+            
+            break;
+            
+        }
+        case UIGestureRecognizerStateEnded: {
+            
+            CGPoint velocity = [gesture velocityInView:self.view];
+            CGFloat magnitude = sqrtf((velocity.x * velocity.x) + (velocity.y * velocity.y));
+            
+            if (magnitude > ThrowingThreshold) {
+                UIPushBehavior *pushBehavior = [[UIPushBehavior alloc]
+                                                initWithItems:@[self.separateBall]
+                                                mode:UIPushBehaviorModeInstantaneous];
+                pushBehavior.pushDirection = CGVectorMake((velocity.x / 10) , (velocity.y / 10));
+                pushBehavior.magnitude = magnitude / ThrowingvelocityPadding;
+
+                [_animator addBehavior:pushBehavior];
+                
+            }
+
+            break;
+        }
+        default:
+            
+            break;
+    }
 }
 
 
@@ -93,7 +152,7 @@
 - (void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item
    withBoundaryIdentifier:(id<NSCopying>)identifier atPoint:(CGPoint)p
 {
-    NSLog(@"Boundary contact occurred - %@", identifier);
+    //NSLog(@"Boundary contact occurred - %@", identifier);
 }
 
 
